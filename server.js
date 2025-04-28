@@ -15,7 +15,7 @@ io.on("connection", (socket) => {
   // Listen for firework data
   socket.on("firework", (data) => {
     // Broadcast the firework data to all clients
-    io.emit("firework", data);
+    socket.broadcast.emit("firework", data);
   });
 
   socket.on("disconnect", () => {
