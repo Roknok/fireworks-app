@@ -4,9 +4,9 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   colorMode(HSB);
   background(0);
-  socket = io.connect("http://localhost:3000");  
+  socket = io.connect("https://fireworks-app.onrender.com/");  
   socket.on("firework", (data) => {
-    fireworks.push(new Firework(data[0], data[1])); 
+    fireworks.push(new Firework(data.x*windowWidth, data.y*windowHeight)); 
   });
 }
 
@@ -23,7 +23,7 @@ function draw() {
 }
 
 function mousePressed() {
-  socket.emit("firework", [mouseX, mouseY]);
+  socket.emit("firework", {x: mouseX/windowWidth,y: mouseY/windowHeight});
   fireworks.push(new Firework(mouseX, mouseY));
 }
 
