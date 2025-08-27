@@ -1,6 +1,6 @@
 let fireworks = [];
 let lastFireworkTime = 0;  // Time when the last firework was triggered
-let cooldown = 500;  // Cooldown period in milliseconds (2 seconds)
+let cooldown = 1000;  // Cooldown period in milliseconds (2 seconds)
 let remainingCooldown = 0;  // Remaining time for cooldown
 
 function setup() {
